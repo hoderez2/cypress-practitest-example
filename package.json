@@ -1,0 +1,28 @@
+{
+  "name": "cypress-practitest-example",
+  "version": "1.0.0",
+  "description": "Example project showing how to integrate Cypress with PractiTest using the auto_create API and screenshot attachments",
+  "main": "index.js",
+  "type": "commonjs",
+  "scripts": {
+    "cy:open": "cypress open",
+    "cy:run": "cypress run --browser chrome",
+    "cy:run:demo": "cypress run --browser chrome --spec \"cypress/e2e/practitest-demo.cy.js\""
+  },
+  "keywords": [
+    "cypress",
+    "practitest",
+    "api",
+    "automation",
+    "testing"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^15.13.1"
+  },
+  "dependencies": {
+    "axios": "^1.15.0",
+    "dotenv": "^17.4.2"
+  }
+}
