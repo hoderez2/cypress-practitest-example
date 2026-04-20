@@ -117,6 +117,30 @@ Builds the payload, collects screenshots, and reports results. Connects the repo
 A sample Cypress spec that includes both a passing and an intentionally failing test to demonstrate the full reporting flow.
 
 ---
+ 
+## Custom fields
+ 
+This integration sets the following custom field on every test it creates via `auto_create`:
+ 
+| Field name | Field ID | Value |
+|---|---|---|
+| Automation Status | 278185 | `Automated` |
+ 
+The field is applied in `lib/practitest-reporter.js` inside `test-attributes`:
+ 
+```js
+'custom-fields': {
+  '---f-278185': 'Automated',
+}
+```
+ 
+Custom field keys follow the PractiTest API format `---f-{field_id}`. The value must match exactly one of the field's configured possible values (case-sensitive).
+ 
+> **Note:** This field is only written when `auto_create` creates the test for the first time. It will not overwrite the value on subsequent runs.
+ 
+To adapt this for your own project, replace `278185` with your field's ID and `'Automated'` with the appropriate value. You can find field IDs via the [PractiTest fields API](https://www.practitest.com/api-v2/#get-all-system-and-custom-fields-in-your-project).
+ 
+---
 
 ## Test naming
 
